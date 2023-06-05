@@ -1,0 +1,153 @@
+﻿<Window x:Class="BanyumasScene.Navbar"
+        xmlns:ctls="clr-namespace:BanyumasScene.Controls" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BanyumasScene"
+        mc:Ignorable="d" Name="home"
+        Title="MainWindow" Height="650" Width="1000"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Background="Transparent" AllowsTransparency="True"
+        ResizeMode="NoResize" FontFamily="Poppins" Loaded="home_Loaded">
+
+
+    <Border Background="{DynamicResource PrimaryBackgroundColor}"
+            CornerRadius="8">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0"
+                    Background="{DynamicResource SecundaryBackgroundColor}"
+                    CornerRadius="8 0 0 8">
+                <Grid x:Name="GridNav" Width="60">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Border 
+                              Margin="14 0 0 0"
+                              Width="32" Height="24"
+                              HorizontalAlignment="Left">
+                            <Border.Background>
+                                <ImageBrush ImageSource="Resources/logo.png" Stretch="Uniform"/>
+                            </Border.Background>
+                        </Border>
+
+                        <Label Content="BMSCENE"
+                               Foreground="{DynamicResource PrimaryTextColor}"
+                               FontWeight="Bold"
+                               FontSize="16"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Left"
+                               Margin="60 0 0 0"/>
+                    </Grid>
+                    <StackPanel Grid.Row="1" Margin="-1 40 0 20">
+                        <Button x:Name="btnHome" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnHome_MouseEnter" MouseLeave="btnHome_MouseLeave" Click="btnHome_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource home}" IconWidth="16" Text="Home" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button x:Name="btnDashboard" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnDashboard_MouseEnter" MouseLeave="btnDashboard_MouseLeave" Click="btnDashboard_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource dashboard}" IconWidth="16" Text="Favorite" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button x:Name="btnKuliner" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnKuliner_MouseEnter" MouseLeave="btnKuliner_MouseLeave" Click="btnKuliner_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource Kuliner}" IconWidth="16" Text="Kuliner" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button x:Name="btnWisata" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnWisata_MouseEnter" MouseLeave="btnWisata_MouseLeave" Click="btnWisata_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource Wisata}" IconWidth="16" Text="Wisata" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button x:Name="btnHotel" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnHotel_MouseEnter" MouseLeave="btnHotel_MouseLeave" Click="btnHotel_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource Hotel}" IconWidth="16" Text="Hotel" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button x:Name="btnEvent" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnEvent_MouseEnter" MouseLeave="btnEvent_MouseLeave" Click="btnEvent_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource Event}" IconWidth="19" Text="Foto" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button x:Name="btnFoto" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnFoto_MouseEnter" MouseLeave="btnFoto_MouseLeave" Click="btnFoto_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource Foto}" IconWidth="17" Text="Rating" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button x:Name="btnReview" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnReview_MouseEnter" MouseLeave="btnReview_MouseLeave" Click="btnReview_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource Review}" IconWidth="19" Text="Akun Manager" VerticalAlignment="Center"/>
+                        </Button>
+                        <Button x:Name="btnUpload" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnUpload_MouseEnter" MouseLeave="btnUpload_MouseLeave" Click="btnLogout_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource settings}" IconWidth="18" Text="Logout" VerticalAlignment="Center"/>
+                        </Button>
+                    </StackPanel>
+
+                    <!-- Start: MenuItem -->
+                    <!-- End: MenuItem -->
+
+                    <!-- Start: Popup User Control -->
+                    <Popup x:Name="Popup"  AllowsTransparency="True"  HorizontalOffset="0" VerticalOffset="10">
+                        <ctls:UserPopup x:Name="Header" Foreground="{DynamicResource PrimaryTextColor}"/>
+                    </Popup>
+                    <!-- End: Popup User Control -->
+
+                </Grid>
+            </Border>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <ToggleButton x:Name="Tg_Btn" Grid.Column="1" VerticalAlignment="Center" Style="{DynamicResource iToggleButtonStyle}" HorizontalAlignment="Left" BorderThickness="0" Background="Transparent" Margin="10,15,0,15" Height="30" Width="30">
+                    <ToggleButton.Triggers>
+                        <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                            <BeginStoryboard>
+                                <Storyboard x:Name="HideStackPanel">
+                                    <DoubleAnimation Storyboard.TargetName="GridNav" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="210" To="60" Duration="0:0:0.5">
+                                    </DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="ToggleButton.Checked">
+                            <BeginStoryboard>
+                                <Storyboard x:Name="ShowStackPanel">
+                                    <DoubleAnimation Storyboard.TargetName="GridNav" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="60" To="210" Duration="0:0:0.5">
+                                    </DoubleAnimation>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ToggleButton.Triggers>
+                </ToggleButton>
+
+                <!-- Start: Button Close | Restore | Minimize -->
+                <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.RowSpan="2">
+                    <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Click="btnClose_Click" Tag="IsCloseButton"/>
+                    <Button x:Name="btnRestore" Margin="5,0" Click="btnRestore_Click">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource IconButtonsStyle}">
+                                <Setter Property="Content" Value="{DynamicResource maximize}"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=home, Path=WindowState}" Value="Maximized">
+                                        <Setter Property="Content" Value="{DynamicResource restore}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                    <Button x:Name="btnMinimize" Style="{DynamicResource IconButtonsStyle}" Content="{DynamicResource minimize}" Click="btnMinimize_Click"/>
+                </StackPanel>
+                <!-- End: Button Close | Restore | Minimize -->
+
+                <Frame Grid.Row="1"
+                       Name="fContainer"
+                       Margin="20"
+                       NavigationUIVisibility="Hidden">
+
+                </Frame>
+                <TextBox x:Name="txtNamaPengguna" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="252" Foreground="White" FontSize="18" Margin="306,44,0,0" IsEnabled="False" Grid.RowSpan="2"/>
+                <Label Content="HAI" HorizontalAlignment="Left" Margin="269,49,0,0" VerticalAlignment="Top" Width="48" FontSize="18" Grid.RowSpan="2"/>
+
+            </Grid>
+
+
+
+        </Grid>
+    </Border>
+</Window>
